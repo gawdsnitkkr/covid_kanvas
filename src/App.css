@@ -16,7 +16,15 @@ body{
   color: #E12D48;
   
 }
-
+.contributeDiv {
+  padding-bottom: 30px;
+}
+.contributeDiv span{
+  background-color: #29ab87;
+  padding: 1vh;
+  color: white;
+  border-radius: 20px;
+}
 
 @media(max-width:500px){
   .Content{

@@ -24,6 +24,10 @@ class App extends React.Component {
           <h1 style={{ marginTop: "100px" }} className="footBanner">
             STAY HOME STAY SAFE
           </h1>
+
+          <div class="contributeDiv">
+           Want to contribute? <a href="https://github.com/gawdsnitkkr/covid_kanvas"><span>Contribute here!</span></a>
+          </div>
           <div>
             <Footer />
           </div>
