@@ -33,7 +33,6 @@ class Homepage extends React.Component {
 
   handleSearchGraph(term) {
     this.setState({searchTerm: term});
-    document.getElementById("graphType").style.display = "";
   }
 
   componentDidMount() {

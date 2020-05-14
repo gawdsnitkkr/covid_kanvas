@@ -5,6 +5,9 @@ import axios from "axios";
 
 class DeceasedCasesGraph extends React.Component {
   state = {
+    countryDailyCases: [],
+    countryDeceasedCases: [],
+    countryDate: [],
     Data: {},
     hideIt: false
   };
@@ -12,16 +15,21 @@ class DeceasedCasesGraph extends React.Component {
     axios.get("https://api.covid19india.org/data.json").then((res) => {
       let date = [];
       let deceasedcases = [];
+      let dailycases = [];
       res.data.cases_time_series.forEach((element) => {
         date.push(element.date);
         deceasedcases.push(element.totaldeceased);
+        dailycases.push(element.dailydeceased);
       });
       this.setState({
+        countryDailyCases: dailycases,
+        countryDeceasedCases: deceasedcases,
+        countryDate: date,
         Data: {
           labels: date,
           datasets: [
             {
-              data: deceasedcases,
+              data: [...dailycases],
               fill: true,
               lineTension: 0.5,
               backgroundColor: "rgba(217, 217, 217,0.6)",
@@ -117,6 +125,34 @@ class DeceasedCasesGraph extends React.Component {
           });
         });
       }
+      else {
+        let graphData = [];
+        if(this.props.graphType === 'daily') {
+          graphData = this.state.countryDailyCases;
+        }
+        else if(this.props.graphType === 'cumulative') {
+          graphData = this.state.countryDeceasedCases;
+        }
+
+        if(graphData !== []) {
+          this.setState({
+            Data: {
+              labels: this.state.countryDate,
+              datasets: [
+                {
+                  data: [...graphData],
+                  fill: true,
+                  lineTension: 0.5,
+                  backgroundColor: "rgba(217, 217, 217,0.6)",
+                  borderColor: "grey",
+                  borderWidth: 2,
+                },
+              ],
+            },
+          });
+          graphData = [];
+        }
+      } 
     }
   }
 

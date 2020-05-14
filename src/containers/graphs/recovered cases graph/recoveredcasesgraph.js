@@ -1,27 +1,36 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-
 import axios from "axios";
 
 class RecoveredCasesGraph extends React.Component {
+
   state = {
+    countryDailyCases: [],
+    countryRecoveredCases: [],
+    countryDate: [],
     Data: {},
     hideIt: false,
   };
+
   componentDidMount() {
     axios.get("https://api.covid19india.org/data.json").then((res) => {
       let date = [];
       let recoveredcases = [];
+      let dailycases = [];
       res.data.cases_time_series.forEach((element) => {
         date.push(element.date);
         recoveredcases.push(element.totalrecovered);
+        dailycases.push(element.dailyrecovered);
       });
       this.setState({
+        countryDailyCases: dailycases,
+        countryRecoveredCases: recoveredcases,
+        countryDate: date,
         Data: {
           labels: date,
           datasets: [
             {
-              data: recoveredcases,
+              data: [...dailycases],
               fill: true,
               lineTension: 0.5,
               backgroundColor: "rgba(0, 230, 77,0.6)",
@@ -117,6 +126,34 @@ class RecoveredCasesGraph extends React.Component {
           });
         });
       }
+      else {
+        let graphData = [];
+        if(this.props.graphType === 'daily') {
+          graphData = this.state.countryDailyCases;
+        }
+        else if(this.props.graphType === 'cumulative') {
+          graphData = this.state.countryRecoveredCases;
+        }
+
+        if(graphData !== []) {
+          this.setState({
+            Data: {
+              labels: this.state.countryDate,
+              datasets: [
+                {
+                  data: [...graphData],
+                  fill: true,
+                  lineTension: 0.5,
+                  backgroundColor: "rgba(0, 230, 77,0.6)",
+                  borderColor: "green",
+                  borderWidth: 2,
+                },
+              ],
+            },
+          });
+          graphData = [];
+        }
+      } 
     }
   }
 

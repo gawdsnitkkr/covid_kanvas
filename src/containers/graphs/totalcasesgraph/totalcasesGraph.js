@@ -7,6 +7,9 @@ class TotalCasesGraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      countryDailyCases: [],
+      countryConfirmedCases: [],
+      countryDate: [],
       Data: {},
       hideIt: false,
     };
@@ -16,16 +19,21 @@ class TotalCasesGraph extends React.Component {
       axios.get("https://api.covid19india.org/data.json").then((res) => {
         let date = [];
         let confirmedcases = [];
+        let dailycases = [];
         res.data.cases_time_series.forEach((element) => {
           date.push(element.date);
           confirmedcases.push(element.totalconfirmed);
+          dailycases.push(element.dailyconfirmed);
         });
         this.setState({
+          countryDailyCases: dailycases,
+          countryConfirmedCases: confirmedcases,
+          countryDate: date,
           Data: {
             labels: date,
             datasets: [
               {
-                data: confirmedcases,
+                data: [...dailycases],
                 fill: true,
                 lineTension: 0.5,
                 backgroundColor: "rgba(255, 102, 102,0.6)",
@@ -40,6 +48,7 @@ class TotalCasesGraph extends React.Component {
 
     componentDidUpdate(prevProps) {
       if (this.props.searchTerm !== prevProps.searchTerm || this.props.graphType !== prevProps.graphType) {
+        let graphData = [];
         if(this.props.searchTerm !== '') {
           axios.get("https://api.covid19india.org/states_daily.json").then((res) => {
             let stateCodes = {
@@ -109,7 +118,7 @@ class TotalCasesGraph extends React.Component {
                 labels: date,
                 datasets: [
                   {
-                    data: confirmedcases,
+                    data: [...confirmedcases],
                     fill: true,
                     lineTension: 0.5,
                     backgroundColor: "rgba(255, 102, 102,0.6)",
@@ -121,8 +130,35 @@ class TotalCasesGraph extends React.Component {
             });
           });
         }
-      }
+        else {
+          if(this.props.graphType === 'daily') {
+            graphData = this.state.countryDailyCases;
+          }
+          else if(this.props.graphType === 'cumulative') {
+            graphData = this.state.countryConfirmedCases;
+          }
+  
+          if(graphData !== []) {
+            this.setState({
+              Data: {
+                labels: this.state.countryDate,
+                datasets: [
+                  {
+                    data: [...graphData],
+                    fill: true,
+                    lineTension: 0.5,
+                    backgroundColor: "rgba(255, 102, 102,0.6)",
+                    borderColor: "red",
+                    borderWidth: 2,
+                  },
+                ],
+              },
+            });
+            graphData = [];
+          }
+        } 
     }
+  }
 
   render() {
     if(this.state.hideIt === true) {
@@ -130,6 +166,7 @@ class TotalCasesGraph extends React.Component {
         <h3>No graphs to show.</h3>
       );
     }
+    
     return (
       <div className="totalcasegraph">
         <Line
@@ -147,7 +184,7 @@ class TotalCasesGraph extends React.Component {
 
             maintainAspectRatio: false,
             title: {
-              text: "Total Cases",
+              text: "Confirmed Cases",
               fontSize: 25,
               fontColor: "black",
               display: true,

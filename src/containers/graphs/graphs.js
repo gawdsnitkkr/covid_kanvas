@@ -23,7 +23,7 @@ class Graphs extends React.Component {
         <select
         id = "graphType" 
         onChange={this.handleChange}
-        style={{padding: "10px", fontSize: "20px", borderRadius: "3px", backgroundColor: "#eee", display: "none"}}
+        style={{padding: "10px", fontSize: "20px", borderRadius: "3px", backgroundColor: "#eee"}}
         >
           <option value="daily">Daily cases</option>
           <option value="cumulative">Cumulative cases</option>
