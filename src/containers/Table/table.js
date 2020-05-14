@@ -27,7 +27,7 @@ class Table extends React.Component {
       return (
         <tr key={post.statecode} onClick = { () => {this.props.onClick(this.capitalizeFirstLetter(post.state))}}>
           <td className="States">{post.state}</td>
-          <td className="Confirmed">{post.confirmed}</td>
+          <td className="Confirmed"><span className="new-confirmed"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>{post.deltaconfirmed}</span> {post.confirmed}</td>
           <td className="Active">{post.active}</td>
           <td className="Recovered">{post.recovered}</td>
           <td className="Deaths">{post.deaths}</td>
@@ -74,24 +74,24 @@ class Table extends React.Component {
             <tr className="headrow">
               <th>
                 STATE/UT
-                <hr />
+                
               </th>
 
               <th>
                 CONFIRMED
-                <hr />
+                
               </th>
               <th>
                 ACTIVE
-                <hr />
+                
               </th>
               <th>
                 RECOVERED
-                <hr />
+                
               </th>
               <th>
                 DECEASED
-                <hr />
+                
               </th>
             </tr>
           </thead>
