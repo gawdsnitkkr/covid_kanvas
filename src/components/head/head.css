@@ -39,18 +39,21 @@
 }
 .label{
     /* style={{textAlign:'left',fontSize:'100%',marginLeft:'33%',marginBottom:'8%',marginTop:'3%'}} */
-    text-align: left;
+    text-align: center;
     font-size: 100%;
-    margin-left: 33%;
+    /* margin-left: 33%;
     margin-bottom: 8%;
-    margin-top: 3%;
+    margin-top: 3%; */
 }
 .numbers{
     /* style={{fontSize:'175%',textAlign:'left',marginLeft:'33%',marginBottom:'8%'}} */
     font-size: 175%;
-    text-align: left;
-    margin-left: 33%;
-    margin-bottom: 8%;
+    text-align: center;
+    /* margin-left: 33%;
+    margin-bottom: 8%; */
+}
+.delta-numbers{
+    text-align: center;
 }
 
 .Header{
@@ -79,18 +82,19 @@
         box-sizing: border-box;
     }
     .label{
-        text-align: left;
+        text-align: center;
         font-size: 100%;
-        margin-left: 10%;
+        /* margin-left: 10%;
         margin-bottom: 8%;
-        margin-top: 3%;
+        margin-top: 3%; */
     }
     .numbers{
         /* style={{fontSize:'175%',textAlign:'left',marginLeft:'33%',marginBottom:'8%'}} */
         font-size: 175%;
-        text-align: left;
-        margin-left: 10%;
-        margin-bottom: 8%;
+        text-align: center;
+        /* margin-left: 10%;
+        margin-bottom: 8%; */
     }
+    
     
 }
