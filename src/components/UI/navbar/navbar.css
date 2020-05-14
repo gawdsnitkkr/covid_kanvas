@@ -15,24 +15,15 @@ body {
    
   }
   .Faq{
-    margin-left: 37%;
-  }
-  .button{
-    margin-left: 0%;
+    margin-left:48%;
     
   }
   .suggestions{
-      margin-left: 0%;
+      margin-left: 5%;
   }
   .about{
-    margin-left: 0%;
+    margin-left: 5%;
   }
-  a{
-    margin-left: 0%;
-  }
- .fa{
-   margin-right: 15px;
- }
   
   .topnav a {
     float: left;
@@ -59,7 +50,7 @@ body {
     display: none;
   }
   
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav button.icon {
       float: right;
@@ -67,7 +58,7 @@ body {
     }
   }
   
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 600px) {
       
     .topnav.responsive {position:relative; }
     .topnav.responsive .icon {
@@ -90,91 +81,5 @@ body {
     .about{
         margin-left: 0%;
     }
-    .contribute{
-      margin-left: 0%;
-    }
 
   }
-  @media screen and (max-width: 1340px) {
-      
-    .topnav.responsive {position:relative; }
-    .topnav.responsive .icon {
-      position: absolute;
-      
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: inline-block;
-      text-align: left;
-    }
-    .Faq{
-        margin-left: 32%;
-    }
-    .suggestions{
-        margin-left: 0%;
-    }
-    .about{
-        margin-left: 0%;
-    }
-    .contribute{
-      margin-right: 0%;
-    }
-}
-
-@media screen and (max-width: 1250px) {
-      
-  .topnav.responsive {position:relative; }
-  .topnav.responsive .icon {
-    position: absolute;
-    
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: inline-block;
-    text-align: left;
-  }
-  .Faq{
-      margin-left: 20%;
-  }
-  .suggestions{
-      margin-left: 0%;
-  }
-  .about{
-      margin-left: 0%;
-  }
-  .contribute{
-    margin-right: 0%;
-  }
-}
-
-@media screen and (max-width: 1060px) {
-      
-  .topnav.responsive {position:relative; }
-  .topnav.responsive .icon {
-    position: absolute;
-    
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: inline-block;
-    text-align: left;
-  }
-  .Faq{
-      margin-left: 5%;
-  }
-  .suggestions{
-      margin-left: 0%;
-  }
-  .about{
-      margin-left: 0%;
-  }
-  .contribute{
-    margin-right: 0%;
-  }
-}

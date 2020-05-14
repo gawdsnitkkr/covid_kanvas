@@ -5,17 +5,16 @@
 
 .SearchBar{
     border:none;
-    width: 51%;
+    width: 60%;
     text-align: left;
     padding: 20px;
-    height: 27px;
+    height: 40px;
     background-color:#E0E5EC;
     box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
     border-radius: 25px;
-    font-size: 23px;
+    font-size: 30px;
     text-indent:30px;
     z-index: 100;
-    /* margin-top: 10px; */
 }
 button{
     background-color:#E0E5EC;
@@ -33,7 +32,6 @@ button{
     top: 20px;
     left: 590px;
     color: rgb(114, 107, 107);
-    /* margin-top: 10px; */
 }
 
 @media(max-width:500px){
@@ -48,7 +46,6 @@ button{
         border-radius: 25px;
         font-size: 15px;
         text-indent:10px;
-        margin-top: 30px;
         
         
     }
@@ -57,6 +54,5 @@ button{
         top: 10px;
         left: 70%;
         color: rgb(114, 107, 107);
-        margin-top: 30px;
     }
 }
