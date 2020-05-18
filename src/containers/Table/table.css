@@ -73,14 +73,10 @@ tr:visited {
 }
 
 
-@media(max-width:500px){
+@media(max-width:1000px){
     .table{
-       
-        /*box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);*/
         margin-left: 0px ;
         margin-top: 20px;
-        overflow: scroll;
-        
     }
     table{
         margin-left: auto;

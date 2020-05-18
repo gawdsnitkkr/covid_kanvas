@@ -1,11 +1,10 @@
-
 .full-width-height {
-    height: 100%;
+    height: auto;
     width: 100%;
   }
 .container {
-    width: calc(100% - 32px);
-    height: calc(100% - 32px); 
+    width: calc(100% - 20px);
+    height: calc(100% - 20px); 
     /* padding: 16px; */
   }
 

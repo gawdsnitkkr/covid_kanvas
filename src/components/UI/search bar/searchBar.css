@@ -1,3 +1,4 @@
+
 .Search {
   position: relative;
 }
@@ -52,10 +53,11 @@ ul {
   border-radius: 25px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .SearchBar {
     border: none;
     width: 60%;
+    /* width: 100%; */
     text-align: left;
     padding: 15px;
     height: 20px;
@@ -68,9 +70,9 @@ ul {
     margin-top: 30px;
   }
   .placeholder {
-    position: absolute;
     top: 10px;
     left: 70%;
+    /* left: 100%; */
     color: rgb(114, 107, 107);
     margin-top: 30px;
   }

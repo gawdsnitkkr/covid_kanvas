@@ -13,13 +13,14 @@
     .searchResultBox{
         margin-top: 25px;
         margin-left: -35%;
+        width: 100%;
         
     }
     .SearchResult{
       
        margin-left:  auto;
        margin-right: auto; 
-        width: auto;
+        width: 100%;
     }
     
 }
