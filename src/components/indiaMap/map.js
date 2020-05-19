@@ -16,6 +16,7 @@ class Map extends React.Component {
       width: 0,
       height: 0,
       scale: 0,
+      center: [],
     }
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -23,10 +24,13 @@ class Map extends React.Component {
 
   updateWindowDimensions() {
     if(window.innerWidth <= 500) {
-      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 720});
+      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 900, center: [82, 12]});
+    }
+    else if(window.innerWidth <= 700) {
+      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 930, center: [81, 15]})
     }
     else {
-      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 1200});
+      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 1500, center: [82, 23]});
     }
   }
 
@@ -77,9 +81,11 @@ class Map extends React.Component {
       let states = response.data.statewise;
       for(let i = 1; i < states.length; i++) {
         let tempState = data.find(s => s.id === states[i].statecode.toUpperCase() || s.id2 === states[i].statecode.toUpperCase());
-        tempState["confirmed"] = +states[i].confirmed;
-        tempState["death"] = +states[i].deaths;
-        tempState["recovered"] = +states[i].recovered;
+        if(tempState) {
+          tempState["confirmed"] = +states[i].confirmed || 0;
+          tempState["death"] = +states[i].deaths || 0;
+          tempState["recovered"] = +states[i].recovered || 0;
+        }
       }
     this.setState({data: data});
     });
@@ -90,7 +96,7 @@ class Map extends React.Component {
     const INDIA_TOPO_JSON = require('./india.topo.json');
     const PROJECTION_CONFIG = {
       scale: this.state.scale,
-      center: [82, 20],
+      center: this.state.center,
     };
 
     const COLOR_RANGE = [
@@ -123,9 +129,12 @@ class Map extends React.Component {
     };
 
   
-    let arr = this.state.data.map(d => d.confirmed);
+    let arr = this.state.data.map(d => {if(d.confirmed !== undefined) return d.confirmed; else return 0;});
+    console.log(arr);
+    console.log(this.state.data);
     let max = Math.max(...arr);
     let min = Math.min(...arr);
+    console.log(max);
     const colorScale = scaleLinear()
     .domain([min, max/8, max/4, max/2, max])
     .range(COLOR_RANGE);

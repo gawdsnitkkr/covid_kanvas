@@ -74,8 +74,7 @@ class SearchBar extends React.Component {
         suggestionList = (
           <ul
             className="suggestionList"
-            style={{ width: "50%", marginLeft: "19%" }}
-          >
+            style={{ width: "50%", marginLeft: "19%" }}>
             {this.state.filteredSuggestions.map((suggestion, index) => {
               return (
                 <li

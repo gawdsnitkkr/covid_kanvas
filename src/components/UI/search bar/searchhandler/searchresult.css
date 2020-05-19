@@ -1,4 +1,3 @@
-
 .searchResult{
     margin-left: 0px;
     
@@ -9,17 +8,19 @@
     
 }
 
-@media(max-width:500px){
+@media(max-width:1000px){
     .searchResultBox{
         margin-top: 25px;
         margin-left: -35%;
+        /* width: auto; */
         
     }
     .SearchResult{
       
        margin-left:  auto;
        margin-right: auto; 
-        width: auto;
+       width: auto;
+        /* width: 100%; */
     }
     
 }
