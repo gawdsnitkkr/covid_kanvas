@@ -86,31 +86,31 @@ tr:visited {
     }
     th{
         padding: 1px;
-        font-size: 12px;
+        font-size: 15px;
         font-weight: bold;
     }
     .Deaths{
        
-        font-size: 12px;
+        font-size: 15px;
         
     }
     .Recovered{
         
-        font-size: 12px;
+        font-size: 15px;
         
     }
     .Active{
         
-        font-size: 12px;
+        font-size: 15px;
         
     }
     .Confirmed{
-        font-size: 12px;
+        font-size: 15px;
         
     }
     .States{
         
-        font-size: 11px;
+        font-size: 15px;
        
         
     }

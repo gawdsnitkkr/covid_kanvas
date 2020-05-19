@@ -30,7 +30,7 @@ class Map extends React.Component {
       this.setState({width: window.innerWidth, height: window.innerHeight, scale: 930, center: [81, 15]})
     }
     else {
-      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 1500, center: [82, 20]});
+      this.setState({width: window.innerWidth, height: window.innerHeight, scale: 1500, center: [82, 23]});
     }
   }
 

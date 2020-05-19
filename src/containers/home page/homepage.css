@@ -1,4 +1,3 @@
-
 body{
     text-align: center;
     align-items: center;
@@ -50,7 +49,7 @@ body{
     .Content{
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
     }
 
